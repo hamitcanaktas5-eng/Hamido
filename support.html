@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="apple-mobile-web-app-capable" content="yes"/>
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+  <meta name="theme-color" content="#070b16"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+  <title>Destek — RoxyScore</title>
+  <link rel="stylesheet" href="shared.css"/>
+  <link rel="stylesheet" href="support.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet"/>
+  <link rel="manifest" href="manifest.json"/>
+</head>
+<body class="anim-left">
+
+  <!-- ── LIST VIEW ── -->
+  <div id="view-list">
+    <header class="topbar">
+      <button class="back-btn" id="back-list">
+        <svg viewBox="0 0 24 24"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
+      </button>
+      <div class="topbar-center"><span class="topbar-title">Destek</span></div>
+      <button class="new-ticket-btn" id="open-new-btn">
+        <svg viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
+        Yeni
+      </button>
+    </header>
+
+    <div class="list-info">
+      <div class="info-box">
+        <div class="info-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H8c0-2.21 1.79-4 4-4s4 1.79 4 4c0 .88-.36 1.68-.93 2.25z"/></svg>
+        </div>
+        <div>
+          <div class="info-title">Destek Merkezi</div>
+          <div class="info-sub">Ortalama yanıt süresi: ~2 saat</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ticket-filters">
+      <button class="tfilter active" data-f="all">Tümü</button>
+      <button class="tfilter" data-f="open">Açık</button>
+      <button class="tfilter" data-f="closed">Kapalı</button>
+    </div>
+
+    <div class="ticket-list" id="ticket-list"></div>
+  </div>
+
+  <!-- ── NEW TICKET VIEW ── -->
+  <div id="view-new" class="hidden">
+    <header class="topbar">
+      <button class="back-btn" id="back-new">
+        <svg viewBox="0 0 24 24"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
+      </button>
+      <div class="topbar-center"><span class="topbar-title">Yeni Talep</span></div>
+      <div style="width:36px"></div>
+    </header>
+    <div class="form-wrap">
+      <div class="form-card">
+        <div class="fg">
+          <label>Konu</label>
+          <div class="iw">
+            <input type="text" id="ticket-subject" placeholder="Talebinizin konusu..." maxlength="80"/>
+          </div>
+          <span class="fe" id="subject-err"></span>
+        </div>
+        <div class="fg">
+          <label>Açıklama</label>
+          <textarea id="ticket-body" placeholder="Sorununuzu detaylıca açıklayın..." rows="6" maxlength="1000"></textarea>
+          <span class="fe" id="body-err"></span>
+        </div>
+        <button class="submit-btn" id="submit-ticket">
+          <span class="bt">Talep Gönder</span>
+          <span class="bl hidden"></span>
+        </button>
+      </div>
+      <p class="form-note">Talepler iş günleri 09:00–18:00 saatleri arasında incelenir.</p>
+    </div>
+  </div>
+
+  <!-- ── CHAT VIEW ── -->
+  <div id="view-chat" class="hidden">
+    <header class="topbar">
+      <button class="back-btn" id="back-chat">
+        <svg viewBox="0 0 24 24"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
+      </button>
+      <div class="topbar-center">
+        <span class="chat-title" id="chat-title">Talep</span>
+        <span class="chat-badge" id="chat-badge">Açık</span>
+      </div>
+      <button class="close-btn" id="close-ticket-btn">
+        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+      </button>
+    </header>
+    <div class="chat-messages" id="chat-messages"></div>
+    <div class="chat-bar" id="chat-bar">
+      <textarea class="chat-input" id="chat-input" placeholder="Mesajınızı yazın..." rows="1"></textarea>
+      <button class="chat-send" id="chat-send">
+        <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+      </button>
+    </div>
+    <div class="chat-closed-bar hidden" id="chat-closed-bar">
+      <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+      Bu talep kapatılmıştır. Yeni talep oluşturabilirsin.
+    </div>
+  </div>
+
+  <script src="keys.js"></script>
+  <script src="config.js"></script>
+  <script src="data.js"></script>
+  <script src="shared.js"></script>
+  <script src="support.js"></script>
+</body>
+</html>

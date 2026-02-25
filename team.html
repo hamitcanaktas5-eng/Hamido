@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="apple-mobile-web-app-capable" content="yes"/>
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+  <meta name="theme-color" content="#070b16"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+  <title>Takım — RoxyScore</title>
+  <link rel="stylesheet" href="shared.css"/>
+  <link rel="stylesheet" href="team.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet"/>
+  <link rel="manifest" href="manifest.json"/>
+</head>
+<body class="anim-up">
+
+  <header class="topbar" id="topbar">
+    <button class="back-btn" id="back-btn">
+      <svg viewBox="0 0 24 24"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
+    </button>
+    <div class="topbar-center">
+      <span class="topbar-league" id="topbar-league">—</span>
+    </div>
+    <button class="fav-toggle" id="fav-toggle">
+      <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+    </button>
+  </header>
+
+  <div class="team-hero" id="team-hero">
+    <div class="hero-bg" id="hero-bg"></div>
+    <div class="hero-inner">
+      <div class="hero-logo-wrap" id="hero-logo"></div>
+      <div class="hero-info">
+        <div class="hero-name"   id="hero-name">—</div>
+        <div class="hero-league" id="hero-league">—</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tabs-wrap">
+    <div class="tabs">
+      <button class="tab active" data-tab="squad">Kadro</button>
+      <button class="tab" data-tab="fixture">Fikstür</button>
+    </div>
+    <div class="tab-line" id="tab-line"></div>
+  </div>
+
+  <div class="tab-content" id="tab-content"></div>
+
+  <div id="toast-container"></div>
+  <script src="keys.js"></script>
+  <script src="config.js"></script>
+  <script src="api.js"></script>
+  <script src="data.js"></script>
+  <script src="shared.js"></script>
+  <script src="team.js"></script>
+</body>
+</html>

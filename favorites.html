@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="apple-mobile-web-app-capable" content="yes"/>
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+  <meta name="theme-color" content="#070b16"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+  <title>Favorilerim — RoxyScore</title>
+  <link rel="stylesheet" href="shared.css"/>
+  <link rel="stylesheet" href="favorites.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet"/>
+  <link rel="manifest" href="manifest.json"/>
+</head>
+<body class="anim-left">
+
+  <header class="topbar">
+    <button class="back-btn" id="back-btn">
+      <svg viewBox="0 0 24 24"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
+    </button>
+    <div class="topbar-center"><span class="topbar-title">Favorilerim</span></div>
+    <div style="width:36px"></div>
+  </header>
+
+  <div class="tabs-wrap">
+    <button class="ftab active" data-tab="teams">Favori Takımlar</button>
+    <div class="ftab-line" id="ftab-line"></div>
+  </div>
+
+  <main class="fav-content" id="fav-content"></main>
+
+  <nav class="bottom-nav">
+    <button class="nav-btn" id="nav-drawer">
+      <svg viewBox="0 0 24 24"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>
+      <span>Menüler</span>
+    </button>
+    <button class="nav-btn" id="nav-search">
+      <svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0016 9.5 6.5 6.5 0 109.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+      <span>Arama</span>
+    </button>
+    <button class="nav-center" id="nav-home">
+      <div class="nav-center-inner"><svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg></div>
+      <span>Ana Sayfa</span>
+    </button>
+    <button class="nav-btn" id="nav-table">
+      <svg viewBox="0 0 24 24"><path d="M3 3h18v2H3zm0 4h18v2H3zm0 4h18v2H3zm0 4h18v2H3zm0 4h18v2H3z"/></svg>
+      <span>Puan Tab.</span>
+    </button>
+    <button class="nav-btn nav-active" id="nav-fav">
+      <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+      <span>Favoriler</span>
+    </button>
+  </nav>
+
+  <div id="toast-container"></div>
+  <script src="keys.js"></script>
+  <script src="config.js"></script>
+  <script src="data.js"></script>
+  <script src="shared.js"></script>
+  <script src="favorites.js"></script>
+</body>
+</html>

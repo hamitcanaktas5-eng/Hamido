@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="apple-mobile-web-app-capable" content="yes"/>
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+  <meta name="theme-color" content="#070b16"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+  <title>Maç Detayı — RoxyScore</title>
+  <link rel="stylesheet" href="shared.css"/>
+  <link rel="stylesheet" href="match.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet"/>
+  <link rel="manifest" href="manifest.json"/>
+</head>
+<body class="anim-up">
+
+  <header class="topbar">
+    <button class="back-btn" id="back-btn">
+      <svg viewBox="0 0 24 24"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
+    </button>
+    <div class="topbar-center">
+      <span class="topbar-league" id="topbar-league">—</span>
+      <span class="topbar-date"   id="topbar-date">—</span>
+    </div>
+    <button class="icon-btn" id="notif-toggle">
+      <svg viewBox="0 0 24 24"><path d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.9 2 2 2zm6-6v-5c0-3.07-1.63-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.64 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z"/></svg>
+    </button>
+  </header>
+
+  <div class="hero">
+    <div class="hero-bg" id="hero-bg"></div>
+    <div class="live-badge hidden" id="live-badge"><span class="live-dot"></span>CANLI</div>
+    <div class="hero-teams">
+      <div class="hero-team">
+        <div class="hero-logo" id="home-logo"></div>
+        <div class="hero-name" id="home-name">—</div>
+        <button class="fav-pill" id="home-fav">
+          <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          Favori
+        </button>
+      </div>
+      <div class="hero-score-wrap">
+        <div class="hero-score">
+          <span id="sh">-</span><span class="sd">:</span><span id="sa">-</span>
+        </div>
+        <div class="hero-status" id="hero-status">-</div>
+        <div class="hero-ht" id="hero-ht"></div>
+      </div>
+      <div class="hero-team">
+        <div class="hero-logo" id="away-logo"></div>
+        <div class="hero-name" id="away-name">—</div>
+        <button class="fav-pill" id="away-fav">
+          <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          Favori
+        </button>
+      </div>
+    </div>
+    <div class="evt-ribbon" id="evt-ribbon"></div>
+  </div>
+
+  <div class="tabs-wrap">
+    <div class="tabs" id="tabs">
+      <button class="tab active" data-tab="summary">Özet</button>
+      <button class="tab" data-tab="stats">İstatistik</button>
+      <button class="tab" data-tab="lineup">Kadro</button>
+      <button class="tab" data-tab="h2h">H2H</button>
+    </div>
+    <div class="tab-line" id="tab-line"></div>
+  </div>
+
+  <div class="tab-content" id="tab-content"></div>
+  <div id="toast-container"></div>
+
+  <script src="keys.js"></script>
+  <script src="config.js"></script>
+  <script src="api.js"></script>
+  <script src="data.js"></script>
+  <script src="shared.js"></script>
+  <script src="match.js"></script>
+</body>
+</html>
